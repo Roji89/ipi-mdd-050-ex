@@ -29,6 +29,8 @@ public interface EmployeRepository extends JpaRepository<Employe, Long> {
 
     List<Employe> findBySalaireGreaterThanOrderBySalaireDesc(Double salaire);
 
+    List<Employe> findByMatriculeContaining(String marticule);
+
     @Query(value = "SELECT * FROM Employe WHERE salaire > (SELECT avg(e2.salaire) FROM Employe e2)", nativeQuery = true)
     List<Employe> findEmployePlusRiches();
 }
