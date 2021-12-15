@@ -7,4 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ManagerRepository extends JpaRepository<Manager, Long> {
     @EntityGraph(attributePaths = "equipe")
     Manager findOneWithEquipeById(Long id);
+
+    Manager findByMatricule(String matriculeManager);
 }
